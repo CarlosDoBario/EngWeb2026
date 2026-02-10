@@ -1,4 +1,4 @@
-**Estrutura da Tarefa**
+**Estrutura da Tarefa 1**
 
 **dataset_reparacoes.json:** O ficheiro de dados original com o histórico de intervenções.
 
@@ -6,7 +6,7 @@
 
 **website/:** Pasta gerada pelo script que contém a estrutura completa do site:
 
-**index.html:** **Portal principal.
+**index.html:** Portal principal.
 
 **listagem_reparacoes.html:** Tabela com o resumo de todas as reparações.
 
@@ -16,6 +16,4 @@
 
 **Executar o script Python:**
 
-Bash
-python3 gerar_website.py
-Abrir o ficheiro website/index.html
+Bash -> python3 gerar_website.py -> Abrir o ficheiro website/index.html
