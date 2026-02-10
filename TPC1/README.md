@@ -1,4 +1,9 @@
-**Estrutura da Tarefa 1**
+**Tarefa 1 - 11/02/2026 - Carlos Daniel Lopes Cunha A106910 - Engenharia Web**
+<img width="635" height="847" alt="image" src="https://github.com/user-attachments/assets/e3c6ac8b-e57a-45c0-a759-7d2d73e7052d" />
+
+Esta tarefa foi desenvolvida para a unidade curricular de Engenharia Web. O objetivo é processar um dataset JSON contendo registos de reparações automóveis e gerar um website estático funcional para consulta dos dados.
+
+**Estrutura**
 
 **dataset_reparacoes.json:** O ficheiro de dados original com o histórico de intervenções.
 
@@ -17,3 +22,4 @@
 **Executar o script Python:**
 
 Bash -> python3 gerar_website.py -> Abrir o ficheiro website/index.html
+
