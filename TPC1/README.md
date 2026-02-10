@@ -1,20 +1,21 @@
-Estrutura da Tarefa
-dataset_reparacoes.json: O ficheiro de dados original com o histórico de intervenções.
+**Estrutura da Tarefa**
 
-gerador_site.py: Script Python que processa o JSON e gera automaticamente as páginas HTML.
+**dataset_reparacoes.json:** O ficheiro de dados original com o histórico de intervenções.
 
-website/: Pasta gerada pelo script que contém a estrutura completa do site:
+**gerador_site.py:** Script Python que processa o JSON e gera automaticamente as páginas HTML.
 
-index.html: Portal principal.
+**website/:** Pasta gerada pelo script que contém a estrutura completa do site:
 
-listagem_reparacoes.html: Tabela com o resumo de todas as reparações.
+**index.html:** **Portal principal.
 
-intervencoes/: Páginas detalhadas por tipo de serviço (ex: R024).
+**listagem_reparacoes.html:** Tabela com o resumo de todas as reparações.
 
-marcas/: Páginas com o histórico por marca e modelo de viatura.
+**intervencoes/:** Páginas detalhadas por tipo de serviço (ex: R024).
 
-Executar o script Python:
+**marcas/:** Páginas com o histórico por marca e modelo de viatura.
+
+**Executar o script Python:**
 
 Bash
 python3 gerar_website.py
-Abrir o ficheiro website/index.html 
+Abrir o ficheiro website/index.html
