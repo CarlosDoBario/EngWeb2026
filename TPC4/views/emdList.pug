@@ -1,0 +1,29 @@
+extends layout
+block content
+  .w3-card-4
+    header.w3-container.w3-teal
+      h2.w3-left Lista de Exames (EMD)
+      .w3-right.w3-padding
+        a.w3-btn.w3-indigo(href="/emd/registo") + Novo Registo
+        a.w3-btn.w3-blue-grey.w3-margin-left(href="/emd/stats") 📊 Estatísticas
+    .w3-container
+      table.w3-table-all.w3-hoverable
+        tr
+          th Data
+          th Atleta
+          th Modalidade
+          th Resultado
+          th Ações
+        each e in emds
+          tr
+            td= e.dataEMD
+            td
+              if e.nome
+                a(href=`/emd/${e.id}`)= `${e.nome.primeiro} ${e.nome.último}`
+              else
+                a(href=`/emd/${e.id}`)= `${e.pnome} ${e.unome}`
+            td= e.modalidade
+            td= (e.resultado === true || e.resultado === 'on') ? "✅ Apto" : "❌ Não Apto"
+            td
+              a.w3-button.w3-blue.w3-tiny(href=`/emd/editar/${e.id}`) 📝
+              a.w3-button.w3-red.w3-tiny(href=`/emd/apagar/${e.id}` onclick="return confirm('Apagar registo?')") 🗑️

@@ -1,0 +1,15 @@
+extends layout
+block content
+  .w3-card-4
+    header.w3-container.w3-teal: h2 Distribuições e Estatísticas
+    .w3-container.w3-padding
+      each val, key in stats
+        .w3-panel.w3-light-grey.w3-leftbar.w3-border-teal
+          h4.w3-text-teal= key.toUpperCase()
+          table.w3-table-all
+            each count, label in val
+              tr
+                td= label
+                td= count
+    footer.w3-container.w3-teal
+      a.w3-btn.w3-white.w3-margin(href="/") Voltar
