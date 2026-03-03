@@ -3,7 +3,7 @@ Tarefa 4 - 03/03/2026 - Carlos Daniel Lopes Cunha A106910 - Engenharia Web
 Esta tarefa consistiu no desenvolvimento de um sistema completo (CRUD) para a gestão de registos de Exames Médicos Desportivos. O sistema utiliza um servidor aplicacional em Node.js que comunica com uma base de dados persistida num ficheiro JSON através do `json-server`. A interface foi construída utilizando o motor de templates **Pug**.
 
 **Estrutura** 
-**emd.json**: Base de dados em formato JSON com o histórico de .
+**emd.json**: Base de dados em formato JSON que armazena todos os registos médicos.
 
 **emd_server.js**: Servidor Node.js. Contém a lógica de encaminhamento (routing) das rotas HTTP, a comunicação com a API do json-server via axios e o tratamento de dados dos formulários (POST).
 
