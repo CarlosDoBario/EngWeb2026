@@ -1,0 +1,16 @@
+extends layout
+block content
+  .w3-card-4
+    header.w3-container.w3-indigo
+      h1 Lista de Atores
+    .w3-container
+      table.w3-table-all.w3-margin-top
+        tr
+          th Nome do Ator (ou Cast Member)
+          th Número de Filmes
+        each a in list
+          tr
+            td: a(href=`/atores/${a.id}`)= a.nome
+            td= a.count
+    footer.w3-container.w3-indigo
+      a.w3-button.w3-white.w3-margin(href="/filmes") Voltar
