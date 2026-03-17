@@ -19,6 +19,7 @@ Esta tarefa consistiu na colocação de uma aplicação em contentores, de gest�
 **Persistência (mongoEW):** Contentor Docker oficial de MongoDB onde os dados do cinema.json foram importados e organizados em coleções de filmes, atores e generos.
 
 **Rotas Implementadas**
+
 **GET /filmes:** Tabela com ID, título, ano, nº de atores e nº de géneros. Cada linha liga ao detalhe do filme.
 
 **GET /filmes/:id:** Detalhe completo de um filme (elenco, géneros e metadados).
@@ -32,13 +33,21 @@ Esta tarefa consistiu na colocação de uma aplicação em contentores, de gest�
 **Execução e Instalação**
 
 **Criar e iniciar o contentor MongoDB**
+
 docker run -d --name mongoEW -p 27017:27017 mongo
+
 **Importar o dataset**
+
 docker cp cinema.json mongoEW:/tmp/cinema.json
+
 docker exec -it mongoEW mongoimport --db cinema --collection filmes --file /tmp/cinema.json --jsonArray
+
 **Iniciar**
+
 docker-compose up --build
+
 **Acesso**
+
 Interface: http://localhost:7790
 
 API de Dados: http://localhost:7789
