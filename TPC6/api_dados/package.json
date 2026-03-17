@@ -1,0 +1,9 @@
+{
+  "name": "api-cinema",
+  "version": "1.0.0",
+  "main": "myServer.js",
+  "dependencies": {
+    "express": "^4.19.0",
+    "mongoose": "^8.0.0"
+  }
+}

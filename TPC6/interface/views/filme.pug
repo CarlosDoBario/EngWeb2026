@@ -1,0 +1,17 @@
+extends layout
+block content
+  .w3-card-4
+    header.w3-container.w3-teal
+      h1 Filme: #{f.title}
+    .w3-container
+      p #[b Ano:] #{f.year}
+      p #[b Elenco:]
+      ul
+        each a in f.cast
+          li= a
+      p #[b Géneros:]
+      ul
+        each g in f.genres
+          li= g
+    footer.w3-container.w3-teal
+      address Gerado por Cinema-App [#[a(href="/filmes") Voltar]]

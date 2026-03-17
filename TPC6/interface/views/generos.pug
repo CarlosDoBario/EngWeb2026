@@ -1,0 +1,12 @@
+extends layout
+block content
+  .w3-container
+    h2 Lista de Géneros
+    table.w3-table-all
+      tr
+        th Designação
+        th Nº de Filmes
+      each g in lista
+        tr
+          td= g.designacao
+          td= g.numFilmes

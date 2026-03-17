@@ -1,0 +1,5 @@
+FROM mongo:latest
+COPY cinema.json /docker-entrypoint-initdb.d/
+COPY mongo-init/import.sh /docker-entrypoint-initdb.d/
+# O segredo para a API conseguir ligar-se:
+CMD ["mongod", "--bind_ip_all"]

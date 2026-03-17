@@ -1,0 +1,13 @@
+extends layout
+block content
+  .w3-container
+    h2 Lista de Atores
+    table.w3-table-all
+      tr
+        th Nome
+        th Nº de Filmes
+      each a in lista
+        tr
+          td
+            a(href="/atores/" + a.nome)= a.nome
+          td= a.numFilmes
