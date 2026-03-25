@@ -1,0 +1,20 @@
+services:
+  api-dados:
+    build: ./ex1
+    container_name: api-dados
+    ports:
+      - "16025:16025"
+    environment:
+      - MONGO_URL=mongodb://host.docker.internal:27017/autoRepair 
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  interface:
+    build: ./ex2
+    container_name: interface
+    ports:
+      - "16026:16026"
+    environment:
+      - API_URL=http://api-dados:16025/repairs
+    depends_on:
+      - api-dados

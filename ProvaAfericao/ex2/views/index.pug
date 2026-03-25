@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  .w3-card-4
+    header.w3-container.w3-teal
+      h1 Lista de Reparações
+    .w3-container
+      table.w3-table-all.w3-hoverable
+        thead
+          tr.w3-light-grey
+            th ID
+            th Data
+            th Nome
+            th Matrícula
+            th Marca
+            th Intervenções
+        tbody
+          each r in lista
+            tr
+              td
+                // Link direto para o ID conforme o enunciado
+                a(href="/" + r._id)= r._id
+              td= r.data
+              td= r.nome
+              td= r.viatura.matricula
+              td
+                // Link direto para a Marca conforme o enunciado
+                a(href="/" + r.viatura.marca)= r.viatura.marca
+              td= r.nr_intervencoes
+    footer.w3-container.w3-teal
+      address Gerado por Oficina de Engenharia Web 2026

@@ -1,0 +1,65 @@
+1 - Quantos automóveis foram reparados?
+db.repairs.countDocuments({})
+R : 5000
+
+2 - Quantos automóveis da marca "Cadillac" foram reparados?
+db.repairs.countDocuments({"viatura.marca": "Cadillac"})
+91
+
+3 - Que marcas de autóveis já apareceram na oficina (ordenada alfabeticamente e sem repetições)?
+db.repairs.distinct("viatura.marca").sort()
+[
+  'Alfa Romeo', 'Aston Martin', 'Audi',       'BMW',
+  'Bentley',    'Cadillac',     'Chery',      'Chevrolet',
+  'Chrysler',   'Citroen',      'DFM',        'Dacia',
+  'Daewoo',     'Daihatsu',     'Dodge',      'Ferrari',
+  'Fiat',       'Ford',         'Geely',      'Honda',
+  'Hyundai',    'Infiniti',     'Isuzu',      'Jaguar',
+  'Jeep',       'Kia',          'Lada',       'Lamborghini',
+  'Lancia',     'Land Rover',   'Maserati',   'Mazda',
+  'Mercedes',   'Mini',         'Mitsubishi', 'Nissan',
+  'Opel',       'Peugeot',      'Porsche',    'Proton',
+  'Renault',    'Rover',        'Saab',       'Seat',
+  'Skoda',      'Smart',        'SsangYong',  'Subaru',
+  'Suzuki',     'Tata',         'Tofaş',      'Toyota',
+  'Volkswagen', 'Volvo'
+]
+
+4 - Qual a distribuição por tipo de reparação? (por exemplo: quantas mudanças de óleo, quantas mudanças de filtro, ...)
+db.repairs.aggregate([{ $unwind: "$intervencoes" }, { $group: { _id: "$intervencoes.nome", total: { $sum: 1 } } }])
+[
+  { _id: 'Troca de filtro de ar', total: 1638 },
+  { _id: 'Ajuste do sistema de freios', total: 1613 },
+  { _id: 'Substituição do catalisador', total: 1617 },
+  { _id: 'Troca de filtro de combustível', total: 1595 },
+  { _id: 'Alinhamento de rodas', total: 1554 },
+  { _id: 'Troca de óleo', total: 1611 },
+  { _id: 'Substituição de bateria', total: 1592 },
+  { _id: 'Diagnóstico eletrónico', total: 1597 },
+  { _id: 'Reparação elétrica', total: 1590 },
+  { _id: 'Recarga de gás do sistema de ar condicionado', total: 1519 },
+  { _id: 'Reparação de vazamento no sistema de escape', total: 1651 },
+  { _id: 'Troca de filtro de habitáculo', total: 1661 },
+  { _id: 'Troca de pneus', total: 1549 },
+  { _id: 'Troca de correia de distribuição', total: 1533 },
+  { _id: 'Balanceamento de rodas', total: 1646 },
+  { _id: 'Serviço de transmissão', total: 1573 },
+  { _id: 'Substituição de pastilhas de freio', total: 1635 },
+  { _id: 'Substituição de braços de suspensão', total: 1568 },
+  { _id: 'Troca de correia dentada', total: 1608 },
+  { _id: 'Substituição de molas', total: 1590 }
+]
+
+5 - Qual a distribuição do número de clientes por ano?
+db.repairs.aggregate([{ $group: { _id: { $substr: ["$data", 0, 4] }, numClientes: { $sum: 1 } } }])
+[
+  { _id: '2022', numClientes: 577 },
+  { _id: '2015', numClientes: 626 },
+  { _id: '2017', numClientes: 567 },
+  { _id: '2021', numClientes: 590 },
+  { _id: '2019', numClientes: 600 },
+  { _id: '2016', numClientes: 586 },
+  { _id: '2020', numClientes: 567 },
+  { _id: '2018', numClientes: 572 },
+  { _id: '2023', numClientes: 315 }
+]

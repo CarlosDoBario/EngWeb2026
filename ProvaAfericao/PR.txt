@@ -1,0 +1,31 @@
+A prova de aferição consistiu no desenvolvimento de um sistema de gestão de reparações automóveis, dividido em 3 componentes principais:
+
+Ex1 (API de Dados): Servidor em Express que comunica com o MongoDB para fornecer dados em JSON na porta 16025.
+Ex2 (Interface): Servidor em Express com Pug que consome a API e apresenta a interface visual na porta 16026.
+Ex3* (Docker): Orquestração de todo o sistema (Base de Dados, API e Interface) usando Docker e Docker Compose.
+
+Importação de Dados: Os dados foram importados a partir do dataset fornecido (dataset_reparacoes.json). O dataset foi estruturado no
+formato jsonArray (retirou-se intervenções e o dataset ficou entre [])
+Comando de Importação:
+    mongoimport -d autoRepair -c repairs --file reparacoes.json --jsonArray
+Utilizado o mongoEW já criado em aula (copiar dataset, mongoimport, etc...)
+
+Exercício 1 (API):
+Criado o modelo Mongoose em ex1/models/repair.js para suportar a estrutura do dataset.
+Implementada lógica de filtros por marca e ano na rota GET /repairs.
+
+Exercício 2 (Interface):
+Rotas Dinâmicas: Para cumprir com as rotas desejadas (/:id e /:marca), utilizou-se uma Expressão Regular (Regex) na rota do ID: app.get('/:id([0-9a-fA-F]{24})', ...). 
+Layout: Utilizou-se a framework W3.CSS para garantir uma interface organizada com tabelas legíveis e navegação intuitiva.
+
+Exercício 3 (Docker):
+Criados Dockerfiles para a API e Interface.
+O docker-compose.yml configura a rede interna e define variáveis de ambiente (MONGO_URL, API_URL) para que os serviços comuniquem corretamente entre si.
+
+Execução (via Docker Compose)
+    docker-compose up --build
+Aceder à interface em: http://localhost:16026
+
+Via Execução Manual:
+    API: Em ex1, 1 - executar npm install express mongoose morgan e 2 - node app.js.
+    Interface: Em ex2, executar 1 - npm install axios pug express morgan 2 - node app.js.
